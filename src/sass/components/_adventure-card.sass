@@ -1,0 +1,17 @@
+.adventure-card
+    padding: 2.1rem
+    background-color: rgb($color-white,.8 )
+    border-radius: .5rem
+    box-shadow: $shadow-h2
+    text-align: center
+    transition: .5s all
+    height: 30rem
+    width: 24rem
+    @include phoneArg2(tab-land)
+        height: 31rem
+        width: 21rem
+    &:hover
+        transform: translateY(1rem) scale(1.05)
+    &__icon
+        width: 6.1rem
+        height: 6.4rem

@@ -1,0 +1,79 @@
+.book
+    height: 50rem
+    box-shadow: $shadow-h2
+    background: linear-gradient(113deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.8) 55%, rgba(252,250,248,0.2) 55%, rgba(186,133,84,0.1) 100%), url(../img/girl.jpg) center / cover no-repeat
+.form
+    padding-left: 5rem
+    padding-top: 5rem
+    width: 70%
+    &__group:not(:last-child)
+        margin-bottom: 3rem
+    &__input
+        font-size: $font-size-paragraph
+        letter-spacing: .2rem
+        font-weight: 400
+        color: $color-black
+        padding: 2rem 0rem 2rem 2rem
+        background: $color-white
+        border: none
+        border-bottom: .2rem solid transparent 
+        border-radius: .3rem
+        width: 52%
+        &:focus
+            outline: none
+            border-bottom: .3rem solid #66D763
+            box-shadow: $shadow-h2
+        &:invalid
+            border-bottom: .3rem solid #D76363
+            box-shadow: $shadow-h2
+    &__input:placeholder-shown + &__label
+        opacity: 0
+        visibility: hidden
+    &__label
+        font-size: $font-size-paragraph
+        letter-spacing: .2rem
+        font-weight: 400
+        display: block
+        margin-top: 1rem
+        margin-left: 1.5rem
+        transition: .8s all
+    &__group-radio
+        // width: 40%
+        &:not(:last-child)
+            margin-right: 2rem
+        display: inline-block
+    &__input-radio
+        // скрыли стандартный инпут для визуала псевдоклассов
+        display: none
+    &__label-radio
+        position: relative
+        cursor: pointer
+        padding-left: 3.5rem
+    &__button-radio
+        position: absolute
+        display: block
+        height: 3rem
+        width: 3rem
+        border-radius: 50%
+        border: .5rem solid $color-brown-light
+        left: 0
+        top: -0.4rem
+        &::after
+            content: ""
+            display: block
+            height: 1.3rem
+            width: 1.3rem
+            border-radius: 50%
+            background: $color-brown-light
+            // Позициоинирование мини кружков в кружке по центру
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+            opacity: 0
+            transition: .5s all
+            // обращаемся к свойству инпута checked и через ~ пишем путь до маленькой кнопки          
+    &__input-radio:checked ~ &__label-radio  &__button-radio::after
+        opacity: 1
+            
+

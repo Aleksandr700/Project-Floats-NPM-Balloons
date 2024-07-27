@@ -1,0 +1,32 @@
+// Запятая после звездочки для обновления стандартных отступов у псевдоэлементов
+*, ::after, ::before
+    box-sizing: border-box
+
+html
+    // 1 rem = 10пикс
+    font-size: 10px
+    // font-size: 62.5%
+    // @media (max-width: 600px)
+    //     font-size: 35%
+    // вызов миксина с аргументом(выбираем между готовыми разрешениями из миксина phoneArg(0,1,2,3))
+    // от самого большог раз-ния к маленькому
+    @include phoneArg2(tab-land)
+        font-size: 50%
+    @include phoneArg1(tab-port)
+        font-size: 35%
+    @include phoneArg(phone)
+        font-size: 30%
+    @include phoneArg3(big-screen)
+        font-size: 75%
+        
+body
+    padding: 5rem
+    background-color: $color-white
+
+.container
+    // Для отображения текста на видио и незакрывания серым фоном
+    position: relative
+    z-index: 0
+    background-color: #F7F7F7
+    
+

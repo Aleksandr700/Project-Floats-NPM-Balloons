@@ -1,0 +1,98 @@
+.toure-card
+    position: relative
+    height: 52rem
+    // свойство на глаз
+    perspective: 150rem
+    // Вендерный префекс для работы в мозиле
+    -moz-perspective: 150rem
+    // сторона
+    &__side
+        border-radius: .5rem
+        overflow: hidden
+        box-shadow: $shadow-h2
+        position: absolute
+        height: 52rem
+        // ease-out для мягкости и плавности
+        transition: 1.5s all ease-out
+        // Позиционирование сторон карточек
+        top: 0
+        left: 0 
+        width: 100%
+        // Сокрытие лишних элементов при анимации
+        backface-visibility: hidden
+        // модификатор внешняя и задняя сторона
+        @include phoneArg2(tab-land)
+            height: 53rem
+        &_back
+            transform: rotateY(180deg)
+            background: linear-gradient(90.00deg, rgb(195, 149, 106),rgb(162, 79, 3))
+    // свойство hover работает на класс toure-card
+    &:hover  &__side_front
+        transform: rotateY(-180deg)
+    &:hover  &__side_back
+        // вращение
+        transform: rotateY(0deg)
+    &__img
+        // свойство для наложения (Layer) как в фигме
+        background-blend-mode: hard-light
+        width: 34rem
+        height: 24rem
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 81%)
+        &_1
+            background: $color-brown-light url(../img/card-1.jpg) center / cover no-repeat
+        &_2
+            background: $color-brown-light url(../img/card-2.jpg) center / cover no-repeat
+        &_3
+            background: $color-brown-light url(../img/card-3.jpg) center / cover no-repeat
+    &__title
+        font-size: 3rem
+        letter-spacing: .4rem
+        font-weight: 300
+        text-transform: uppercase
+        color: $color-white
+        text-align: right
+        position: absolute
+        top: 17rem
+        right: 0rem
+    &__span
+        background: linear-gradient(90.00deg, rgb(195, 149, 106),rgb(162, 79, 3))
+        padding: 1rem 2rem 
+        &_lower
+            position: absolute
+            top: 3.9rem
+            right: 0rem
+    &__descript
+        ul
+            list-style: none
+            margin: 0 auto
+            width: 75%
+            // Для удаления заступа у подчеркиваний
+            text-align: center
+            li
+                font-size: $font-size-paragraph
+                letter-spacing: .4rem
+                color: $color-gray
+                border-bottom: .1rem solid $color-gray
+                // Для удаления заступа у подчеркиваний
+                display: inline-block
+                &:not(:last-child)
+                    margin-bottom: 2rem
+    &__backSide-box
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+    &__text
+        margin-bottom: 8rem
+        letter-spacing: .4rem
+        text-transform: uppercase
+        text-align: center
+        color: $color-white
+        &_1
+            font-size: $font-size-paragraph
+            font-weight: 250
+        &_2
+            font-size: 7rem
+            font-weight: 400
+.btn-bottom
+    text-align: center

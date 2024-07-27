@@ -1,0 +1,109 @@
+.navigation
+    // Переключатель
+    &__toggle
+        display: none
+    &__button
+        width: 6.2rem
+        height: 6.2rem
+        border-radius: 50%
+        background: $gradient-brown-light
+        // при прокрутке будет фиксироватьсяв в одном месте
+        position: fixed
+        right: 8rem
+        top: 8.5rem
+        z-index: 200
+        text-align: center
+        cursor: pointer
+    &__background
+        width: 5rem
+        height: 5rem
+        border-radius: 50%
+        background: $color-brown-dark
+        position: fixed
+        right: 9rem
+        top: 9rem
+        z-index: 100
+        // при настройке анимации гамбургера, коментим данное свойство
+        // transform: scale(100)
+        transition: all .5s
+    &__nav
+        // 100% высота всегда при любом дисплее
+        height: 100vh
+         // при настройке анимации гамбургера, коментим данное свойство
+        // width: 100%
+        position: fixed
+        top: 0
+        right: 0
+        // между кнопкой и коричневым беком
+        z-index: 150
+        // для сокрытия видимости и ширины раскрытого гамбургера, при создании анимации
+        opacity: 0
+        width: 0
+        transition: all .5s cubic-bezier(0.68, -0.6, 0.32, 1.6)
+    &__list
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        list-style: none
+    &__item
+        text-align: center
+        &:not(:last-child)
+            margin-bottom: 5rem
+    &__link
+        &:link,&:visited
+            font-size: 4rem
+            letter-spacing: .5rem
+            color: $color-white
+            text-decoration: none
+            text-transform: uppercase
+            font-weight: 250
+            //белый фон при наведении
+            background: linear-gradient(120deg,transparent 0%,transparent 50%,$color-white 50%)
+            background-size: 220%
+            transition: all .5s
+            // display: inline-block
+        &:hover,&:active
+            background-position: 100%
+            color: $color-brown-dark
+            border-radius: .2rem
+            // настройка выхода бэка и нав-меню
+    &__toggle:checked ~ &__background
+        // возвращаем что коментили
+        transform: scale(100)
+    &__toggle:checked ~ &__nav
+        // возвращаем что коментили
+        width: 100%
+        opacity: 1
+    &__icon
+        position: relative
+        margin-top: 3rem
+        // сам элемент
+        &,
+        &::before,
+        &::after
+            width: 3rem
+            height: .2rem
+            background: $color-black
+            display: inline-block
+        &::before,
+        &::after
+            content: ""
+            position: absolute
+            left: 0
+        &::before
+            top: -1rem
+        &::after
+            top: 1rem
+    // гамбургер - крестик
+    &__toggle:checked + &__button &__icon
+        background: transparent
+    &__toggle:checked + &__button &__icon::before
+        top: 0
+        transform: rotate(135deg)
+    &__toggle:checked + &__button &__icon::after
+        top: 0
+        transform: rotate(-135deg)
+   
+   
+        

@@ -1,0 +1,48 @@
+.btn
+    // Псевдоклассы(посещенная ссылка и ссылка)
+    // &, дополнительный амперсант для распрстранения свойств для класса .btn,для визуала кнопки из формы
+    &, &:visited, &:link
+        // Включаем миксин, с указанием в аргументе цвета, именно, который нужен нам
+        @include style-link-visited($color-gray)
+        // для последней кнорки
+        border: none
+        
+    &_animated
+        animation-name: btnUp
+        animation-duration: 1s
+        animation-delay: 1s
+        // Свойство появления кнопки из вне
+        animation-fill-mode: backwards
+
+        // Наведение и нажатие
+    &:hover
+        transform: translateY(-.5rem)
+        // Дополняем псевдокласс псевдоэлементом
+        &::after
+            opacity: 0
+            // Анимация - свойство увелечения, 2 - размер увеличения
+            transform: scale(1.5)
+    &:active
+        transform: translateY(.5rem)
+        // Псевдоэлемент
+    &::after
+        // Обязательное свойство
+        content: ""
+        // Создаем в качестве эффекта кнопку над стандартной кнопкой
+        background: $color-white
+        border-radius: 5rem
+        height: 5.4rem
+        width: 27.7rem
+        display: inline-block
+        position: absolute
+        top: 0rem
+        left: 0rem
+        z-index: -1
+        // Время переходного состояния обьекта
+        transition: all 1s
+.btn_brown
+      background: $color-brown-light
+      color: $color-white
+      &::after
+         background: $color-brown-light
+            
